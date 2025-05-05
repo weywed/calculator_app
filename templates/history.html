@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>История</title>
+</head>
+<body>
+    <h1>История операций</h1>
+    <table border="1">
+        <tr>
+            <th>Выражение</th>
+            <th>Результат</th>
+            <th>Время</th>
+        </tr>
+        {% for op in operations %}
+        <tr>
+            <td>{{ op.expression }}</td>
+            <td>{{ op.result }}</td>
+            <td>{{ op.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Назад</a>
+</body>
+</html>
