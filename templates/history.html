@@ -1,12 +1,78 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>История</title>
+    <style>
+        body {
+            background-color: #1d1f20;
+            color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            border: 1px solid #444;
+            background-color: #2d2f34;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #3a3f46;
+        }
+
+        tr:hover {
+            background-color: #444;
+        }
+
+        a {
+            color: #f4f4f4;
+            font-size: 1.2em;
+            margin-top: 20px;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #555;
+        }
+
+        a:active {
+            background-color: #777;
+        }
+    </style>
 </head>
 <body>
     <h1>История операций</h1>
-    <table border="1">
+    <table>
         <tr>
             <th>Выражение</th>
             <th>Результат</th>

@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #1d1f20; /* Темный фон */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#calculator {
+    background: #2d2f34; /* Основной фон калькулятора */
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 2%;
+    width: 100%;
+    max-width: 500px;
+    max-height: 700px;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#display {
+    font-size: 2em; /* Уменьшил размер шрифта для строки ввода */
+    background: #1e1f22;
+    color: #f4f4f4;
+    border: none;
+    border-radius: 10px;
+    text-align: right;
+    padding: 10px;
+    height: 60px; /* Установил фиксированную высоту */
+    transition: background 0.3s ease-in-out;
+}
+
+#buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+}
+
+button {
+    font-size: 1.6em;
+    color: #fff;
+    background: #444;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: #555;
+}
+
+button:active {
+    background: #777;
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+#clear {
+    grid-column: span 4;
+    background: crimson;
+    color: white;
+    font-weight: bold;
+}
+
+#clear:hover {
+    background: darkred;
+}
+
+#clear:active {
+    background: firebrick;
+    transform: scale(0.95);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    #calculator {
+        width: 95vw;
+        padding: 5%;
+    }
+
+    #display {
+        font-size: 1.8em; /* Меньше шрифт на мобильных */
+    }
+
+    button {
+        font-size: 1.4em;
+    }
+}
+
+/* Цвет текста результата */
+h2 {
+    color: white; /* Белый цвет текста результата */
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+
