@@ -8,7 +8,9 @@
 <body>
   <div id="calculator">
     <form method="POST" action="/">
-      <input type="text" name="expression" id="display" readonly value="{{ result or '0' }}" />
+      
+      <input type="text" name="expression" id="display" readonly value="{{ expression or '0' }}" />
+      
       <div id="buttons">
         <button type="button">7</button><button type="button">8</button><button type="button">9</button><button type="button">/</button>
         <button type="button">4</button><button type="button">5</button><button type="button">6</button><button type="button">*</button>
