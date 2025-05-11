@@ -9,38 +9,45 @@
             background-color: #1d1f20;
             color: #f4f4f4;
             font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
-            height: 100vh;
-            margin: 0;
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             margin-bottom: 20px;
-            color: #fff;
+            text-align: center;
+        }
+
+        .table-container {
+            width: 100%;
+            max-width: 1000px;
+            overflow-x: auto; /* добавляет прокрутку только при необходимости */
+            border-radius: 10px;
+            background-color: #2d2f34;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         table {
-            width: 80%;
-            margin: 20px 0;
+            width: 100%;
             border-collapse: collapse;
-            border: 1px solid #444;
-            background-color: #2d2f34;
+            min-width: 600px; /* минимальная ширина для читабельности */
         }
 
         th, td {
-            padding: 12px;
+            padding: 12px 15px;
             text-align: left;
-            font-size: 1.2em;
+            border-bottom: 1px solid #444;
         }
 
         th {
             background-color: #333;
             color: white;
+            position: sticky;
+            top: 0;
         }
 
         tr:nth-child(even) {
@@ -52,40 +59,58 @@
         }
 
         a {
-            color: #f4f4f4;
-            font-size: 1.2em;
-            margin-top: 20px;
+            color: white;
             text-decoration: none;
-            padding: 10px;
+            margin-top: 20px;
+            padding: 10px 20px;
             background-color: #333;
             border-radius: 5px;
+            transition: background 0.2s;
         }
 
         a:hover {
             background-color: #555;
         }
 
-        a:active {
-            background-color: #777;
+        @media (max-width: 600px) {
+            th, td {
+                font-size: 0.9em;
+                padding: 8px 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            a {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
 <body>
     <h1>История операций</h1>
-    <table>
-        <tr>
-            <th>Выражение</th>
-            <th>Результат</th>
-            <th>Время</th>
-        </tr>
-        {% for op in operations %}
-        <tr>
-            <td>{{ op.expression }}</td>
-            <td>{{ op.result }}</td>
-            <td>{{ op.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Выражение</th>
+                    <th>Результат</th>
+                    <th>Время</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for op in operations %}
+                <tr>
+                    <td>{{ op.expression }}</td>
+                    <td>{{ op.result }}</td>
+                    <td>{{ op.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <a href="{{ url_for('index') }}">Назад</a>
 </body>
 </html>
